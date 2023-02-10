@@ -6,7 +6,7 @@
 /*   By: marai <masadevs@gmail.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 17:47:08 by marai             #+#    #+#             */
-/*   Updated: 2023/02/11 01:11:19 by marai            ###   ########.fr       */
+/*   Updated: 2023/02/11 03:05:09 by marai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
 t_node  *make_list(int argc, char *argv[])
 {
     t_node  *stack_a;
-    size_t  numslen;
+    ssize_t  numslen;
     int     *nums;
 
     if (argc == 1)
@@ -50,11 +50,11 @@ t_node  *make_list(int argc, char *argv[])
     return (stack_a);
 }
 
-size_t check_compose(int argc, char *argv[])
+ssize_t check_compose(int argc, char *argv[])
 {
-    size_t  i;
-    size_t  j;
-    size_t  numslen;
+    ssize_t  i;
+    ssize_t  j;
+    ssize_t  numslen;
 
     i = 1;
     numslen = 0;
@@ -63,14 +63,11 @@ size_t check_compose(int argc, char *argv[])
         j = 0;
         while(argv[i][j] != '\0')
         {
-            while (ft_isspace(argv[i][j]))
-                j++;
-            while (ft_isdigit(argv[i][j]))
-                j++;
-            while (ft_isspace(argv[i][j]))
-                j++;
-            if (argv[i][j] != '\0' || (2 == argc && !ft_isdigit(argv[i][j])))
+            if (skip_num(&argv[i][j]) <= 0)
                 error_exit();
+            j += skip_num(&argv[i][j]);
+            while (ft_isspace(argv[i][j]))
+                j++;
             numslen++;    
         }
         i++;
@@ -78,10 +75,10 @@ size_t check_compose(int argc, char *argv[])
     return (numslen);
 }
 
-int *make_array_2(size_t numslen, char *argv[])
+int *make_array_2(ssize_t numslen, char *argv[])
 {
-    size_t  i;
-    size_t  j;
+    ssize_t  i;
+    ssize_t  j;
     long    num;
     int     *nums;
     
@@ -106,9 +103,9 @@ int *make_array_2(size_t numslen, char *argv[])
 }
 
 
-int *make_array_3(size_t numslen, char *argv[])
+int *make_array_3(ssize_t numslen, char *argv[])
 {
-    size_t  i;
+    ssize_t  i;
     long    num;
     int     *nums;
 
@@ -129,10 +126,10 @@ int *make_array_3(size_t numslen, char *argv[])
     return (nums);
 }
 
-void check_duplicate(size_t numslen, int *nums)
+void check_duplicate(ssize_t numslen, int *nums)
 {
-    size_t  i;
-    size_t  j;
+    ssize_t  i;
+    ssize_t  j;
 
     i = 0;
     while (i < numslen)

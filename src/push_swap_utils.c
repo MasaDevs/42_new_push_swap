@@ -6,7 +6,7 @@
 /*   By: marai <masadevs@gmail.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 21:08:24 by marai             #+#    #+#             */
-/*   Updated: 2023/02/11 00:09:26 by marai            ###   ########.fr       */
+/*   Updated: 2023/02/11 03:16:58 by marai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,20 @@ void    error_exit()
 }
 
 
-size_t  skip_num(char *str)
+ssize_t  skip_num(char *str)
 {
-    size_t  i;
+    ssize_t  i;
 
     i = 0;
     while (ft_isspace(str[i]))
         i++;
+    while (str[i] == '-' || str[i] == '+') 
+        i++;
+    if (!ft_isdigit(str[i]))
+        return (-1);
     while (ft_isdigit(str[i]))
+        i++;
+    while (ft_isspace(str[i]))
         i++;
     return (i);
 }
@@ -42,14 +48,14 @@ long	ft_atol(char *str)
 {
 	long	ans;
 	int		sign;
-	size_t	i;
+	ssize_t	i;
 
 	ans = 0;
 	sign = 1;
 	i = 0;
 	while (ft_isspace(str[i]))
 		i++;
-	if (str[i] == '+' || str[i] == '-')
+	while (str[i] == '+' || str[i] == '-')
 	{
 		if (str[i] == '-')
 			sign = -1;

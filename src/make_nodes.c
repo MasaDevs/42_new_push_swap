@@ -6,12 +6,14 @@
 /*   By: marai <masadevs@gmail.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 00:12:33 by marai             #+#    #+#             */
-/*   Updated: 2023/02/11 11:22:34 by marai            ###   ########.fr       */
+/*   Updated: 2023/02/12 02:56:48 by marai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 #include <stdio.h>
+
+void    compress_nodes(t_node *stack, ssize_t numslen, int *nums);
 
 t_node  *make_nodes(ssize_t numslen, int *nums)
 {
@@ -38,6 +40,7 @@ t_node  *make_nodes(ssize_t numslen, int *nums)
     }
     stack_a->back = nownode;
     nownode->next = stack_a;
+    compress_nodes(stack_a, numslen, nums);
     return (stack_a);
 }
 
@@ -57,11 +60,38 @@ void    delete_node(t_node *stack)
     while (stack != postnode) 
     {
         stack->next = postnode->next;
-        printf("delete %d\n", postnode->num);
+        printf("num delete %d\n", postnode->num);
+        printf("compressed_num delete %d\n", postnode->compressed_num);
+        printf("\n");
         free(postnode);
         postnode = stack->next;
     }
     free(stack);
+}
+
+void    compress_nodes(t_node *stack, ssize_t numslen, int *nums)
+{
+    t_node  *nownode;
+    ssize_t i;
+    
+    heap_sort(nums, numslen);
+    nownode = stack->next;
+    stack->compressed_num = 0;
+    while (stack != nownode)
+    {
+        i = 0;
+        while (i < numslen)
+        {
+            if(nownode->num == nums[i])
+            {
+                nownode->compressed_num = i + 1;
+                break;
+            }
+            i++;
+        }
+        nownode = nownode->next;
+    }
+    free(nums);
 }
 
 

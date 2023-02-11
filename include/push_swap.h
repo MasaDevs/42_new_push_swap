@@ -35,7 +35,10 @@ void    check_duplicate(ssize_t numslen, int *nums);
 t_node  *make_nodes(ssize_t numslen, int *nums);
 void    detele_everything(int *nums, t_node *stack);
 void    delete_node(t_node *stack);
+void    compress_nodes(t_node *stack, ssize_t numslen, int *nums);
 
-// compress.c
-t_node  *compress_nodes(t_node *stack, ssize_t numslen, int *nums);
+//heap_sort.c
+int     *heap_sort(int *nums, ssize_t numslen);
+void	push_up(int *nums, ssize_t parent, ssize_t last);
+int		*swap(int *nums, ssize_t first, ssize_t second);
 #endif

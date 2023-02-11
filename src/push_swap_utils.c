@@ -6,42 +6,44 @@
 /*   By: marai <masadevs@gmail.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 21:08:24 by marai             #+#    #+#             */
-/*   Updated: 2023/02/11 03:16:58 by marai            ###   ########.fr       */
+/*   Updated: 2023/02/12 03:23:33 by marai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
+int		ft_isspace(char c);
+void	error_exit(void);
+ssize_t	skip_num(char *str);
+long	ft_atol(char *str);
 
-
-int ft_isspace(char c)
+int	ft_isspace(char c)
 {
-    return ((9 <= c && c <= 13) || c == ' ');
+	return ((9 <= c && c <= 13) || c == ' ');
 }
 
-void    error_exit()
+void	error_exit(void)
 {
-    ft_putstr_fd("Error\n", 1);
-    exit(1);
+	ft_putstr_fd("Error\n", 1);
+	exit(1);
 }
 
-
-ssize_t  skip_num(char *str)
+ssize_t	skip_num(char *str)
 {
-    ssize_t  i;
+	ssize_t	i;
 
-    i = 0;
-    while (ft_isspace(str[i]))
-        i++;
-    while (str[i] == '-' || str[i] == '+') 
-        i++;
-    if (!ft_isdigit(str[i]))
-        return (-1);
-    while (ft_isdigit(str[i]))
-        i++;
-    while (ft_isspace(str[i]))
-        i++;
-    return (i);
+	i = 0;
+	while (ft_isspace(str[i]))
+		i++;
+	while (str[i] == '-' || str[i] == '+')
+		i++;
+	if (!ft_isdigit(str[i]))
+		return (-1);
+	while (ft_isdigit(str[i]))
+		i++;
+	while (ft_isspace(str[i]))
+		i++;
+	return (i);
 }
 
 long	ft_atol(char *str)
@@ -70,4 +72,3 @@ long	ft_atol(char *str)
 	}
 	return (ans * sign);
 }
-

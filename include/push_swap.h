@@ -35,4 +35,7 @@ void    check_duplicate(ssize_t numslen, int *nums);
 t_node  *make_nodes(ssize_t numslen, int *nums);
 void    detele_everything(int *nums, t_node *stack);
 void    delete_node(t_node *stack);
+
+// compress.c
+t_node  *compress_nodes(t_node *stack, ssize_t numslen, int *nums);
 #endif

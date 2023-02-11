@@ -6,7 +6,7 @@
 /*   By: marai <masadevs@gmail.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 00:12:33 by marai             #+#    #+#             */
-/*   Updated: 2023/02/11 03:36:58 by marai            ###   ########.fr       */
+/*   Updated: 2023/02/11 11:22:34 by marai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,19 +64,4 @@ void    delete_node(t_node *stack)
     free(stack);
 }
 
-t_node  *compress_nodes(t_node *stack, ssize_t numslen)
-{
-    t_node  *node;
-    int     i;
 
-    stack->compressed_num = 0;
-    i = 0;
-    while (i < numslen)
-    {
-        node = stack->next;
-        while (node != stack)
-        {
-            
-        } 
-    }
-}

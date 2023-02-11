@@ -6,7 +6,7 @@
 /*   By: marai <masadevs@gmail.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 03:21:59 by marai             #+#    #+#             */
-/*   Updated: 2023/02/12 03:22:26 by marai            ###   ########.fr       */
+/*   Updated: 2023/02/12 06:13:33 by marai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,14 @@ void				compress_nodes(t_node *stack, ssize_t numslen, int *nums);
 int					*heap_sort(int *nums, ssize_t numslen);
 void				push_up(int *nums, ssize_t parent, ssize_t last);
 int					*swap(int *nums, ssize_t first, ssize_t second);
+
+// push_swap_utils
+ssize_t				get_node_len(t_node *stack);
+t_node				*get_lastnode(t_node *stack);
+
+//sort operation
+void				rotate_stack(t_node *stack);
+void				reverse_rotate_stack(t_node *stack);
+void				push_headnode(t_node *stack1, t_node *stack2);
+void				swap_headnode(t_node *stack);
 #endif

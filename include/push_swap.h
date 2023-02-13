@@ -6,7 +6,7 @@
 /*   By: marai <masadevs@gmail.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 03:21:59 by marai             #+#    #+#             */
-/*   Updated: 2023/02/13 15:51:36 by marai            ###   ########.fr       */
+/*   Updated: 2023/02/14 02:37:32 by marai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,12 @@ void				sort_node_under6(t_node *stack1, t_node *stack2,
 						ssize_t activelen, ssize_t stacknum);
 ssize_t				push_bigger_nodes(t_node *stack1, t_node *stack2,
 						ssize_t activelen, ssize_t stacknum);
+ssize_t	push_smaller_nodes(t_node *stack1, t_node *stack2, ssize_t activelen, ssize_t stacknum);
 t_node				*sort_node_2(t_node *stack, ssize_t stacknum);
 t_node				*sort_node_3(t_node *stack, ssize_t stacknum);
 
 //push_swap
-void	push_swap(t_node *stack_a, ssize_t stacklen);
-
+void	print(t_node *stack_a, t_node *stack_b);
+void	push_swap(t_node *stack_a, t_node *stack_b, ssize_t a_activelen, ssize_t b_activelen);
+void	see_node(t_node *stack);
 #endif

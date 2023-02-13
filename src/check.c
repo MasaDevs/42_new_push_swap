@@ -6,7 +6,7 @@
 /*   By: marai <masadevs@gmail.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 17:47:08 by marai             #+#    #+#             */
-/*   Updated: 2023/02/12 03:55:11 by marai            ###   ########.fr       */
+/*   Updated: 2023/02/14 03:18:33 by marai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ t_node	*make_list(int argc, char *argv[])
 	printf("compose ok %ld\n", numslen);
 	if (argc == 2)
 		nums = make_array_2(numslen, argv);
-    else if (argc - 1 != numslen)
-        error_exit();
+	else if (argc - 1 != numslen)
+		error_exit();
 	else
 		nums = make_array_3(numslen, argv);
 	for (int i = 0; i < numslen; i++)

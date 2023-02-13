@@ -12,9 +12,12 @@ static void destructor() {
 
 int main(int argc, char *argv[])
 {
-    t_node  *node;
-
-    printf("argc %d\n", argc);
-    node = make_list(argc, argv);
-    delete_node(node);            
+    t_node  *stack_a;
+    stack_a = make_list(argc, argv);
+	//printf("nth %d\n", nth_small_num(node, 2));
+	//printf("-----------sort start-------------\n");
+	//sort_node_under6(stack_a, stack_b, get_node_len(stack_a), 1);
+    //swap_headnode(node, 1);
+	push_swap(stack_a, get_node_len(stack_a));
+    delete_node(stack_a);
 }

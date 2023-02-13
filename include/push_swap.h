@@ -6,7 +6,7 @@
 /*   By: marai <masadevs@gmail.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 03:21:59 by marai             #+#    #+#             */
-/*   Updated: 2023/02/12 06:13:33 by marai            ###   ########.fr       */
+/*   Updated: 2023/02/13 15:51:36 by marai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "../libft/libft.h"
 # include <limits.h>
 # include <stddef.h>
+# include <stdio.h>
 # include <stdlib.h>
 
 typedef struct i_node
@@ -55,10 +56,26 @@ int					*swap(int *nums, ssize_t first, ssize_t second);
 // push_swap_utils
 ssize_t				get_node_len(t_node *stack);
 t_node				*get_lastnode(t_node *stack);
+int					nth_small_num(t_node *stack, ssize_t nth,
+						ssize_t activelen);
+ssize_t				find_num_node(t_node *stack, int num);
 
 //sort operation
-void				rotate_stack(t_node *stack);
-void				reverse_rotate_stack(t_node *stack);
-void				push_headnode(t_node *stack1, t_node *stack2);
-void				swap_headnode(t_node *stack);
+void				rotate_stack(t_node *stack, ssize_t stacknum);
+void				reverse_rotate_stack(t_node *stack, ssize_t stacknum);
+void				push_headnode(t_node *stack1, t_node *stack2,
+						ssize_t stacknum);
+void				swap_headnode(t_node *stack, ssize_t stacknum);
+
+//node_sort
+void				sort_node_under6(t_node *stack1, t_node *stack2,
+						ssize_t activelen, ssize_t stacknum);
+ssize_t				push_bigger_nodes(t_node *stack1, t_node *stack2,
+						ssize_t activelen, ssize_t stacknum);
+t_node				*sort_node_2(t_node *stack, ssize_t stacknum);
+t_node				*sort_node_3(t_node *stack, ssize_t stacknum);
+
+//push_swap
+void	push_swap(t_node *stack_a, ssize_t stacklen);
+
 #endif

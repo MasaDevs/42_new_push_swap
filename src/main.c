@@ -13,11 +13,16 @@ static void destructor() {
 int main(int argc, char *argv[])
 {
     t_node  *stack_a;
+	t_node	*stack_b;
     stack_a = make_list(argc, argv);
 	//printf("nth %d\n", nth_small_num(node, 2));
 	//printf("-----------sort start-------------\n");
-	//sort_node_under6(stack_a, stack_b, get_node_len(stack_a), 1);
+	stack_b = malloc(sizeof(t_node));
+	stack_b->next = stack_b;
+	stack_b->back = stack_b;
+	sort_node_under6(stack_a, stack_b, get_node_len(stack_a), 1);
     //swap_headnode(node, 1);
-	push_swap(stack_a, get_node_len(stack_a));
+	//push_swap(stack_a, get_node_len(stack_a));
     delete_node(stack_a);
+	free(stack_b);
 }
